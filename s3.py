@@ -5,7 +5,7 @@ import sys
 url = 'https://s3.amazonaws.com/'
 name = sys.argv[1].strip()
 
-common = ['-test','-dev','-bucket','-s3','_test','_dev','-aws']
+common = ['-test','-dev','-bucket','-s3','_test','_dev','-aws','-prd','-prod','-pub','-public','-production','-development','-testing']
 
 url = url + name
 
@@ -31,6 +31,9 @@ def get_code(url, name):
 get_code(url, name)
 if '.' in name:
   n2 = 'www.' + name
+  url = 'https://s3.amazonaws.com/' + n2
+  get_code(url, n2)
+  n2 = 's3.' + name
   url = 'https://s3.amazonaws.com/' + n2
   get_code(url, n2)
   n3 = name.split('.')[0]
