@@ -19,11 +19,24 @@ def check_code(r, name):
   print name
   return
 
-r = requests.get(url)
-check_code(r, name)
+def get_code(url, name):
+  r = requests.get(url)
+  check_code(r, name)
+  if r.status_code == 403 or r.status_code == 200:
+    for ext in common:
+      r = requests.get(url + ext)
+      check_code(r, name + ext)
+  
 
-if r.status_code == 403 or r.status_code == 200:
-  for ext in common:
-    r = requests.get(url + ext)
-    check_code(r, name + ext)
+get_code(url, name)
+if '.' in name:
+  n2 = 'www.' + name
+  url = 'https://s3.amazonaws.com/' + n2
+  get_code(url, n2)
+  n3 = name.split('.')[0]
+  url = 'https://s3.amazonaws.com/' + n3
+  get_code(url, n3)
+  
+
+
 
