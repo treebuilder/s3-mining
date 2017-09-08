@@ -44,7 +44,7 @@ In the next image, I use the code to check for the existence of buckets based on
 
 ![Results of testing for a bucket named "example.com"](s3-2.png)
 
-As you can see, we are successful:  `example.com-production` exists.  Were we to install the awscli toolkit via `pip install awscli --upgrade --user`, we could then manipulate the data found there.
+As you can see, we are successful:  `example.com-production` exists and is publicly accessible.  Were we to install the awscli toolkit via `pip install awscli --upgrade --user`, we could then manipulate the data found there.
 
 ##### Typical usage
 
