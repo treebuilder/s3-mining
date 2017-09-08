@@ -1,10 +1,4 @@
-+++
-title = "Hunting For Insecure Amazon S3 Buckets"
-date = "2017-09-08T10:30:04-04:00"
-hide_authorbox = false
-disable_comments = false
-draft = true
-+++
+## Hunting for Insecure Amazon AWS S3 Buckets
 
 Breaches caused by insecurely-configured Amazon S3 buckets are not new.  Researchers have been sounding the alarm [since 2013](https://blog.rapid7.com/2013/03/27/open-s3-buckets/).  However, S3-related breaches continue to make the news.  Last Friday (20170901), researchers announced the discovery of [records for four million Time Warner Cable customers](https://threatpost.com/four-million-time-warner-cable-records-left-on-misconfigured-aws-s3/127807/) due to an improperly secured Amazon S3 bucket.
 
@@ -37,7 +31,7 @@ Possible results are:
  - BadName: The name violates Amazon's restrictions
  - BINGO!: The bucket exists and is publicly accessible
 
-![Results of testing for a bucket named "example"](../s3-1.png)
+![Results of testing for a bucket named "example"](s3-1.png)
 
 The code will only check for variants if a non-404 status is returned.  I tested it with and without this restriction, and the number of buckets that exist in variant form when the base string doesn't exist is so small as to make this not worth the time necessary to perform the checks, particularly when checking against large lists.
 
@@ -48,7 +42,7 @@ In the next image, I use the code to check for the existence of buckets based on
  - Checking for the existence of a bucket based on certain subdomains (`www` and `s3`)
  - Checking for variants as above
 
-![Results of testing for a bucket named "example.com"](../s3-2.png)
+![Results of testing for a bucket named "example.com"](s3-2.png)
 
 As you can see, we are successful:  `example.com-production` exists.  Were we to install the awscli toolkit via `pip install awscli --upgrade --user`, we could then manipulate the data found there.
 
