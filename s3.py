@@ -5,7 +5,8 @@ import sys
 url = 'https://s3.amazonaws.com/'
 name = sys.argv[1].strip()
 
-common = ['-test','-dev','-bucket','-s3','_test','_dev','-aws','-prd','-prod','-pub','-public','-production','-development','-testing','-archive','-backup']
+common = ['test','dev','bucket','s3','aws','prd','prod','pub','public','production','development','testing','archive','backup']
+connectors = ['-','_']
 
 url = url + name
 
@@ -19,6 +20,7 @@ def check_code(r, name):
   print name
   return
 
+'''
 def get_code(url, name):
   r = requests.get(url)
   check_code(r, name)
@@ -26,7 +28,15 @@ def get_code(url, name):
     for ext in common:
       r = requests.get(url + ext)
       check_code(r, name + ext)
-  
+'''
+
+def get_code(url, name):
+  r = requests.get(url)
+  check_code(r, name)
+  for ext in common:
+    for i in connectors:
+      r = requests.get(url + i + ext)
+      check_code(r, name + i + ext)
 
 get_code(url, name)
 if '.' in name:
