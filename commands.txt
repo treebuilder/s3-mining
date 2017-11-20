@@ -1,0 +1,14 @@
+arcent
+navcent
+afcent
+marcent
+soccent
+northcom
+socom
+africom
+eucom
+centcom
+paccom
+southcom
+stratcom
+transcom
