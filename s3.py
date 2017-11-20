@@ -5,7 +5,7 @@ import sys
 url = 'https://s3.amazonaws.com/'
 name = sys.argv[1].strip()
 
-common = ['-test','-dev','-bucket','-s3','_test','_dev','-aws','-prd','-prod','-pub','-public','-production','-development','-testing']
+common = ['-test','-dev','-bucket','-s3','_test','_dev','-aws','-prd','-prod','-pub','-public','-production','-development','-testing','-archive','-backup']
 
 url = url + name
 
