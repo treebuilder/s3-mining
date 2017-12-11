@@ -52,4 +52,6 @@ In practice, I use the tool to cycle through a list of domain names for which a 
 
 The code is by no means complex.  But it is certainly useful.  One could feed it, say, the top thousand or so names from the `Alexa Top 1 Million` list, and work with any exposed organizations to help them secure their data.  One could also proactively scan their web proxy logs or DNS query logs for S3-related traffic, extract names, and perform checks to ensure the buckets in use in your environment are properly secured.
 
+##### Other resources
 
+I've written two blog posts on the topic.  The first one is [here](https://justhackerthings.com/post/hunting-for-insecure-amazon-s3-buckets/), and the second is [here](https://justhackerthings.com/post/amazon-aws-insecure-s3-buckets-redux/).
